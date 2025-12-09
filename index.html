@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mie Ayam SukaRasa — Landing Page</title>
+  <style>
+    :root{--accent:#e63946;--dark:#1f2933;--muted:#6b7280;--bg:#0f1724}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.5;background:linear-gradient(180deg,var(--bg),#071426 80%);color:#f8fafc}
+    a{color:inherit;text-decoration:none}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(255,255,255,0.03)}
+    .brand{display:flex;gap:12px;align-items:center}
+    /* logo */
+    .logo{width:56px;height:56px;display:grid;place-items:center;background:linear-gradient(135deg,#fff 0%, #ffd6d6 100%);border-radius:12px;padding:8px;box-shadow:0 6px 18px rgba(230,57,70,0.12);animation:logo-breathe 3s ease-in-out infinite}
+    @keyframes logo-breathe{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+    .logo svg{width:40px;height:40px}
+    .brand h1{font-size:18px;letter-spacing:0.4px}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none}
+    nav li{font-weight:600}
+    nav a{padding:8px 12px;border-radius:8px;transition:all .25s ease}
+    nav a:hover{background:rgba(255,255,255,0.03);transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,0.25)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:56px 32px;max-width:1200px;margin:28px auto}
+    .hero-card{padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .kicker{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(230,57,70,0.12);color:var(--accent);font-weight:700;margin-bottom:18px}
+    h2{font-size:34px;margin-bottom:12px}
+    p.lead{color:var(--muted);margin-bottom:20px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(230,57,70,0.18);transform:translateY(0);transition:transform .18s}
+    .btn-primary:active{transform:translateY(2px)}
+    .btn-ghost{background:transparent;color:#dbeafe;border:1px solid rgba(255,255,255,0.06)}
+
+    /* image panel */
+    .hero-image{border-radius:14px;overflow:hidden;min-height:320px;display:flex;align-items:flex-end;justify-content:flex-end;position:relative}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.95);transition:transform .8s cubic-bezier(.2,.9,.3,1)}
+    .hero-image:hover img{transform:scale(1.05)}
+
+    /* About */
+    section{max-width:1100px;margin:30px auto;padding:24px}
+    .about{display:grid;grid-template-columns:420px 1fr;gap:28px;align-items:center}
+    .about-photo{border-radius:12px;overflow:hidden;box-shadow:0 18px 40px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .about-text h3{margin-bottom:12px}
+    .features{display:flex;gap:12px;margin-top:14px}
+    .feature{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;font-weight:700}
+
+    /* Contact / Maps */
+    .map-wrap{height:420px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    iframe{width:100%;height:100%;border:0}
+
+    /* Footer */
+    footer{padding:26px 32px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.about{grid-template-columns:1fr}.hero-image{min-height:260px}}
+
+    /* small animations */
+    .fade-up{animation:fadeUp .9s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+    /* simple footer link */
+    .socials{display:flex;gap:10px;justify-content:center;margin-top:10px}
+    .chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:700}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <!-- simple noodle bowl logo SVG -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <ellipse cx="32" cy="44" rx="26" ry="8" fill="#fff" opacity="0.95"/>
+          <path d="M10 44c0 7 10 12 22 12s22-5 22-12" fill="#ffd6d6" opacity="0.9"/>
+          <path d="M22 30c6-8 20-8 28 0" stroke="#e63946" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 26c4-6 16-6 24 0" stroke="#e63946" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M34 12c-1 4 2 9 2 9s3-5 2-9c-1.2-4-6-4-6 0z" fill="#fff" opacity="0.9" />
+        </svg>
+      </div>
+      <div>
+        <h1>Mie Ayam SukaRasa</h1>
+        <div style="font-size:12px;color:var(--muted)">Lezat • Gurih • Bikin Nagih</div>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card fade-up">
+        <span class="kicker">Spesial Hari Ini</span>
+        <h2>Mie Ayam SukaRasa — Rasa Rumah, Harga Bersahabat</h2>
+        <p class="lead">Mie ayam dengan resep turun-temurun, kuah gurih, potongan ayam suwir yang lembut, dan taburan bawang goreng renyah. Siap menghangatkan perut dan suasana.</p>
+        <div class="cta">
+          <button class="btn btn-primary">Pesan Sekarang</button>
+          <a href="#kontak" class="btn btn-ghost">Lihat Lokasi</a>
+        </div>
+
+        <div style="margin-top:20px;color:var(--muted);font-size:13px">Buka setiap hari 10:00 — 21:00 • Terima pesanan dine-in & takeaway</div>
+      </div>
+
+      <div class="hero-image hero-card fade-up" style="min-height:360px">
+        <!-- photo dari Unsplash sebagai contoh; ganti sesuai kebutuhan -->
+        <img src="download (1).jpg" alt="Seporsi mie ayam panas"/>
+      </div>
+    </section>
+
+    <section id="tentang" class="about fade-up">
+      <div class="about-photo">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=80" alt="Mie ayam porsi lengkap"/>
+      </div>
+      <div class="about-text">
+        <h3>Tentang Mie Ayam SukaRasa</h3>
+        <p style="color:var(--muted)">Mie Ayam SukaRasa berdiri sejak 2018 dengan tujuan menyajikan mie ayam yang autentik — kuah kaldu kental yang dimasak perlahan, mie kenyal buatan sendiri, dan suwiran ayam berbumbu. Kami menggunakan bahan segar setiap hari dan mengutamakan rasa tanpa pengawet.</p>
+
+        <div class="features" aria-hidden>
+          <div class="feature">Resep Tradisional</div>
+          <div class="feature">Bahan Segar</div>
+          <div class="feature">Pilihan Paket Hemat</div>
+        </div>
+
+        <p style="margin-top:12px;color:var(--muted)">Selain mie ayam klasik, kami juga menyediakan varian pedas, jamur, dan paket hemat untuk keluarga. Cocok untuk makan siang cepat atau santap malam hangat.</p>
+      </div>
+    </section>
+
+    <section id="kontak" style="max-width:1100px;margin:24px auto;padding:24px;" class="fade-up">
+      <h3 style="margin-bottom:12px">Kontak & Lokasi</h3>
+      <p style="color:var(--muted);margin-bottom:10px">Temukan Mie Ayam SukaRasa pada peta di bawah — buka setiap hari. Gunakan tombol fullscreen pada peta untuk petunjuk arah.</p>
+
+      <div class="map-wrap">
+        <!-- OpenStreetMap embed, terpusat di Jakarta. Ganti bbox/latlon sesuai lokasi nyata. -->
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=106.7840%2C-6.2310%2C106.8560%2C-6.1720&amp;layer=mapnik" aria-label="Peta lokasi Mie Ayam" title="Peta lokasi Mie Ayam"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Mie Ayam SukaRasa — Semua hak dilindungi.</div>
+    <div class="socials" style="margin-top:8px">
+      <div class="chip">WhatsApp: +62 812-3456-7890</div>
+      <div class="chip">Telepon: (021) 555-1234</div>
+    </div>
+  </footer>
+
+  <script>
+    // small script to set year and smooth scroll
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id) || document.querySelector('[name="'+id+'"]');
+        if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
